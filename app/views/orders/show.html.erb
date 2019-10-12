@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @order.product_id %></br>
+  <%= @order.product.name %></br>
+  <%= @order.product.price%>
+</p>
+<h4>一回購入</h4>
+<%= form_tag(action: :pay, method: :post) do %>
+    <%= label_tag :料金 %>
+    <%= number_field_tag :amount %>
+   <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_502b9ca180be0c975d74577d"></script>
+<% end %>
+
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
